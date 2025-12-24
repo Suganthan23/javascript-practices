@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Library System</title>
+    <link rel="stylesheet" href="../ui.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="app">
+            <div class="header">
+                <div>
+                    <h1 class="h1">Library System</h1>
+                    <p class="sub">Add books/members, borrow/return, track availability. Saved in localStorage.</p>
+                </div>
+                <div class="row">
+                    <button class="btn primary" data-tab="books">Books</button>
+                    <button class="btn" data-tab="members">Members</button>
+                    <button class="btn" data-tab="loans">Loans</button>
+                </div>
+            </div>
+
+            <div id="books" class="card">
+                <h3 style="margin:0 0 10px;">Add book</h3>
+                <div class="row">
+                    <input id="bTitle" placeholder="Title">
+                    <input id="bAuthor" placeholder="Author">
+                </div>
+                <div style="height:10px;"></div>
+                <div class="row">
+                    <input id="bIsbn" placeholder="ISBN (optional)">
+                    <input id="bCopies" type="number" min="1" step="1" placeholder="Copies" style="max-width:160px;">
+                    <button class="btn primary" id="addBook">Add</button>
+                </div>
+                <p class="small" id="bMsg" style="margin:10px 0 0;"></p>
+
+                <div style="height:12px;"></div>
+
+                <h3 style="margin:0 0 10px;">Books</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Available</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookRows"></tbody>
+                </table>
+            </div>
+
+            <div id="members" class="card" style="display:none;">
+                <h3 style="margin:0 0 10px;">Add member</h3>
+                <div class="row">
+                    <input id="mName" placeholder="Name">
+                    <input id="mEmail" placeholder="Email (optional)">
+                    <button class="btn primary" id="addMember">Add</button>
+                </div>
+                <p class="small" id="mMsg" style="margin:10px 0 0;"></p>
+
+                <div style="height:12px;"></div>
+
+                <h3 style="margin:0 0 10px;">Members</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="memberRows"></tbody>
+                </table>
+            </div>
+
+            <div id="loans" class="card" style="display:none;">
+                <h3 style="margin:0 0 10px;">Borrow a book</h3>
+                <div class="row">
+                    <select id="loanBook"></select>
+                    <select id="loanMember"></select>
+                    <button class="btn primary" id="borrow">Borrow</button>
+                </div>
+                <p class="small" id="lMsg" style="margin:10px 0 0;"></p>
+
+                <div style="height:12px;"></div>
+
+                <h3 style="margin:0 0 10px;">Active loans</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Member</th>
+                            <th>Borrowed</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="loanRows"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes App</title>
+  <link rel="stylesheet" href="../ui.css">
+</head>
+<body>
+  <div class="container">
+    <div class="app">
+      <div class="header">
+        <div>
+          <h1 class="h1">Notes App</h1>
+          <p class="sub">Create, search, edit, pin. Saved in localStorage.</p>
+        </div>
+        <div class="row">
+          <input id="q" placeholder="Search notes..." style="width:260px;max-width:60vw;">
+          <button class="btn primary" id="add">New note</button>
+          <button class="btn danger" id="del">Delete</button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 320px 1fr;">
+        <div class="card">
+          <div class="row" style="justify-content:space-between;">
+            <span class="badge" id="count">0 notes</span>
+            <button class="btn" id="pin">Pin</button>
+          </div>
+          <ul class="list" id="list" style="margin-top:10px;"></ul>
+        </div>
+
+        <div class="card">
+          <label for="title">Title</label>
+          <input id="title" placeholder="Untitled">
+          <div style="height:10px;"></div>
+          <label for="body">Body</label>
+          <textarea id="body" placeholder="Write your note..."></textarea>
+          <p class="small" id="meta" style="margin:10px 0 0;"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

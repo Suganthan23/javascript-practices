@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="../ui.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="app">
+            <div class="header">
+                <div>
+                    <h1 class="h1">Expense Tracker</h1>
+                    <p class="sub">Track income/expenses with totals. Saved in localStorage.</p>
+                </div>
+                <div class="row">
+                    <button class="btn" id="export">Export</button>
+                    <input type="file" id="import" accept="application/json" style="max-width: 220px;">
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="item">
+                    <div class="small">Balance</div>
+                    <div class="val" id="balance">₹0</div>
+                </div>
+                <div class="item">
+                    <div class="small">Income</div>
+                    <div class="val" id="income">₹0</div>
+                </div>
+                <div class="item">
+                    <div class="small">Expense</div>
+                    <div class="val" id="expense">₹0</div>
+                </div>
+            </div>
+
+            <div style="height:12px;"></div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3 style="margin:0 0 10px;">Add transaction</h3>
+                    <div class="row">
+                        <div style="flex:1; min-width: 150px;">
+                            <label>Type</label>
+                            <select id="type">
+                                <option value="expense">Expense</option>
+                                <option value="income">Income</option>
+                            </select>
+                        </div>
+                        <div style="flex:1; min-width: 150px;">
+                            <label>Amount</label>
+                            <input id="amount" type="number" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                    </div>
+                    <div style="height:10px;"></div>
+                    <div class="row">
+                        <div style="flex:1; min-width: 150px;">
+                            <label>Category</label>
+                            <input id="cat" placeholder="Food, Rent, Salary...">
+                        </div>
+                        <div style="flex:1; min-width: 150px;">
+                            <label>Date</label>
+                            <input id="date" type="date">
+                        </div>
+                    </div>
+                    <div style="height:10px;"></div>
+                    <label>Note</label>
+                    <input id="note" placeholder="Optional">
+                    <div style="height:10px;"></div>
+                    <button class="btn primary" id="add">Add</button>
+                    <p class="small" id="msg" style="margin:10px 0 0;"></p>
+                </div>
+
+                <div class="card">
+                    <div class="row" style="justify-content:space-between;">
+                        <h3 style="margin:0;">Transactions</h3>
+                        <input id="filter" placeholder="Filter (category/note)" style="width:260px;max-width:60vw;">
+                    </div>
+                    <div style="height:10px;"></div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+</body>
+
+</html>
